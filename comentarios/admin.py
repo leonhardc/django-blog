@@ -11,5 +11,6 @@ class ComentarioAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'nome_comentario', 'email_comentario')
 
 
+admin.register(Comentario, ComentarioAdmin)
 
 
