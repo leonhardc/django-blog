@@ -32,3 +32,6 @@ class Comentario(models.Model):
     data_comentario = models.DateTimeField(default=timezone.now)
     publicado_comentario = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.nome_comentario
+

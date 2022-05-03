@@ -9,7 +9,11 @@ Nesse arquivo é defindo os metadados ao app categoria. No caso, um unico meetad
 
 """
 
+
 class Categoria(models.Model):
     nome_cat = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome_cat
 
 
