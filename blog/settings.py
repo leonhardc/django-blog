@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from django.contrib.messages import constants # adiciona mensagens de alerta
+from django.contrib.messages import constants  # adiciona mensagens de alerta
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,9 +33,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'posts',
-    'categorias',
-    'comentarios',
+    'posts.apps.PostsConfig',  # adiciona o app posts
+    'categorias.apps.CategoriasConfig',  # adiciona o app categorias
+    'comentarios.apps.ComentariosConfig',  # adiciona o app comentarios
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # diretorio de templates. Necessário configurar
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Configuração do banco de dados. Que banco de dados será usado
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-BR'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Sao_Paulo'  # ajuste de fuso horário para aplicação
 
 USE_I18N = True
 
@@ -120,9 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# adicionando pasta de arquivos estáticos (css, javascript)
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+# Adicionando pasta de midia (Imagem, no nosso caso)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -131,6 +133,9 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# configurando mensagens de alerta
+# lembrando que para usar essa classe de mensagens é necessário usar a importação:
+# from django.contrib.messages import constants
 MESSAGE_TAGS = {
     constants.ERROR: 'alert-danger',
     constants.WARNING: 'alert-warning',

@@ -19,6 +19,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+"""
+urlpatterns é uma lista que nos permite configurar um grupo de urls com os mais variados fins
+"""
+
+
 urlpatterns = [
     path('', include('posts.urls')),
     path('admin/', admin.site.urls),
