@@ -26,6 +26,6 @@ class ComentarioAdmin(admin.ModelAdmin):
 
 
 # admin.register() funciona como uma forma de dizer ao django aplicar o que foi pedido eem ComentarioAdmin
-admin.register(Comentario, ComentarioAdmin)
+admin.site.register(Comentario, ComentarioAdmin)
 
 
