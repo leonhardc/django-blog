@@ -33,9 +33,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'posts.apps.PostsConfig',  # adiciona o app posts
     'categorias.apps.CategoriasConfig',  # adiciona o app categorias
     'comentarios.apps.ComentariosConfig',  # adiciona o app comentarios
+    'posts.apps.PostsConfig',  # adiciona o app posts
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+INSTALLED_APPS += ('django_summernote', )  # Adiciona o django summernote ao projeto
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,3 +145,5 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-sucess',
     constants.INFO: 'alert-info',
 }
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # summernote config
